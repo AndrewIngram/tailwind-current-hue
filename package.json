@@ -1,6 +1,6 @@
 {
   "name": "tailwind-current-hue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Plugin to provide current hue styles to allow adding tint hues to a subtree.",
   "main": "index.js",
   "scripts": {
