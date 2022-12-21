@@ -2,7 +2,7 @@
 
 Tailwind plugin to provide current hue styles to allow adding tint hues to a subtree.
 
-**Tailwind Play examples**: https://play.tailwindcss.com/nl89OIO9le
+**Tailwind Play examples**: https://play.tailwindcss.com/6bVIIfHPGm
 
 <img width="874" alt="CleanShot 2022-12-21 at 11 16 57@2x" src="https://user-images.githubusercontent.com/35227/208894272-728e9ec0-6429-480a-89d3-a47108f4119e.png">
 
