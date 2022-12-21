@@ -1,44 +1,48 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require('tailwindcss/plugin');
 
 const currentHuePlugin = plugin.withOptions(
   function (options = { defaultHue: 'indigo' }) {
     return function ({ addBase, theme, config, addUtilities }) {
-      const colors = theme('colors')
-      const defaultHue = options.defaultHue
-      const shades = new Set()
-      const hues = new Set()
+      const colors = theme('colors');
+      const defaultHue = options.defaultHue;
+      const shades = new Set();
+      const hues = new Set();
 
       for (let [k, v] of Object.entries(colors)) {
         if (k === 'tint') {
-          continue
+          continue;
         }
 
         if (typeof v === 'object') {
           for (let shade of Object.keys(v)) {
-            shades.add(shade)
+            shades.add(shade);
           }
-          hues.add(k)
-        } 
+          hues.add(k);
+        }
       }
 
       addBase({
         ':root': Array.from(shades).reduce((acc, shade) => {
-          acc[`--${config('prefix')}current-hue-${shade}`] = colors[defaultHue][shade]
-          return acc
+          acc[`--${config('prefix')}current-hue-${shade}`] =
+            colors[defaultHue][shade];
+          return acc;
         }, {}),
-      })
+      });
 
       addUtilities(
         Array.from(hues).reduce((acc, hue) => {
-          acc[`.${config('prefix')}hue-${hue}`] = Array.from(shades).reduce((acc, shade) => {
-            acc[`--${config('prefix')}current-hue-${shade}`] =
-              colors?.[hue]?.[shade] ?? colors[defaultHue][shade]
-            return acc
-          }, {})
-          return acc
+          acc[`.${config('prefix')}hue-${hue}`] = Array.from(shades).reduce(
+            (acc, shade) => {
+              acc[`--${config('prefix')}current-hue-${shade}`] =
+                colors?.[hue]?.[shade] ?? colors[defaultHue][shade];
+              return acc;
+            },
+            {}
+          );
+          return acc;
         }, {})
-      )
-    }
+      );
+    };
   },
   function (options) {
     return {
@@ -60,10 +64,8 @@ const currentHuePlugin = plugin.withOptions(
           },
         },
       },
-    }
+    };
   }
-)
+);
 
-module.exports = {
-  plugins: [currentHuePlugin({ defaultHue: 'indigo' })],
-}
+module.exports = currentHuePlugin;
