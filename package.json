@@ -1,0 +1,43 @@
+{
+  "name": "tailwind-current-hue",
+  "version": "0.0.1",
+  "description": "Plugin to provide current hue styles to allow adding tint hues to a subtree.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write --loglevel=error . !CHANGELOG.md",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin main && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewIngram/tailwind-current-hue-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AndrewIngram/tailwind-current-hue-plugin/issues"
+  },
+  "homepage": "https://github.com/AndrewIngram/tailwind-current-hue-plugin#readme",
+  "keywords": [
+    "create-tailwind-plugin",
+    "tailwind-css-plugin",
+    "tailwindcss",
+    "plugin"
+  ],
+  "author": "Andrew Ingram",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "lint-staged": "^10.5.2",
+    "lodash": "^4.17.20",
+    "postcss": "^8.1.9",
+    "prettier": "^2.2.0",
+    "standard-version": "^9.1.0",
+    "tailwindcss": "^2.0.1"
+  }
+}
